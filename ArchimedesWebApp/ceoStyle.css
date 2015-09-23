@@ -1,0 +1,189 @@
+﻿body
+{ 
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    font: 16px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-stretch: condensed;
+}
+
+h1, h2, h3
+{
+    font: bold 36px "Trebuchet MS", Helvetica, sans-serif;
+    font-stretch: extra-condensed;
+    font-stretch: condensed;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+    h2
+    {
+        font-size: 20px;
+    }
+
+    h3, th
+    {
+        font: bold 20px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    }
+
+#header
+{
+    margin: 0px;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+    #logo
+    {
+        float: left;
+        width: 42px;
+    }
+
+#page_title
+{
+    margin: 0px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 60, 12);
+}
+
+#page_content
+{
+    width: 100%;
+    margin: auto;
+}
+
+#add_team, #leave_comment
+{
+   background: -webkit-linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* Standard syntax */
+
+   padding: 15px;
+   display: inline-block;
+   margin: 0px;
+   height: 500px;
+
+   width: 300px;
+}
+
+#member_table
+{
+   position: fixed;
+   top: 149px;
+   left: 330px;
+   margin-right: 5%;
+   width: auto;
+}
+
+/* div
+{
+    background-color: rgba(255, 60, 12, 1);
+    margin: 10px;
+    border: groove 10px;
+    padding: 10px;
+} */
+
+table
+{
+    margin: auto;
+    width: 100%;
+    background-color: rgba(255, 60, 12, 0.25);
+    border: none;
+}
+
+    td, thead, th
+    {
+        text-align: left;
+        border-top: none;
+        border-bottom: none;
+        border-left: 1px solid white;
+        padding-left: 5px;
+    }
+
+    tr:nth-child(odd)
+    {
+        background-color: rgba(255, 60, 12, 0.25);
+    }
+
+    tr:first-child {
+        background-color: rgba(255, 60, 12, 0.5);
+    }
+
+.team_name
+{
+    background-color: rgba(0,0,0,0);
+}
+
+.member_name, .work_cat
+{
+    background-color: rgba(0,0,0,0);
+    text-align: left;
+    width: 95%;
+    margin: auto;
+}
+
+a:link
+{
+    text-decoration: none;
+    color: black;
+}
+
+    #header_links a:link
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: rgba(255, 60, 12, 1);
+    }
+
+a:visited
+{
+    color: rgba(255, 60, 12, 1);
+}
+
+   table a:visited
+   {
+       color: black;
+   }
+
+a:hover, submit:hover, input:hover, option:hover
+{
+    background-color: rgba(255, 60, 12, 1);
+    color: white;
+}
+
+    #header_links a:hover
+    {
+        border: 2px solid #555;
+        background-color: rgba(128, 128, 128, 0.5);
+    }
+
+a:active
+{
+    color: rgba(0, 0, 0, 1);
+}
+
+input, sumbit, select
+{
+    border: none;
+    font: 16px "Tahoma", "Geneva", sans-serif;
+    background-color: rgba(255, 60, 12, 0.5);
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+}
+
+.checkbox
+{
+    float: right;
+    width: 13px;
+}
+
+.checkbox::after
+{
+    float:unset;
+    float:none;
+}

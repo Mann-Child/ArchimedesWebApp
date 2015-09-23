@@ -1,0 +1,6 @@
+\\csmain\Classes\SE_Project\Development\16-Archimedes\ArchimedesWebApp\ArchimedesWebApp\bin\ArchimedesWebApp.dll.config
+\\csmain\Classes\SE_Project\Development\16-Archimedes\ArchimedesWebApp\ArchimedesWebApp\bin\ArchimedesWebApp.dll
+\\csmain\Classes\SE_Project\Development\16-Archimedes\ArchimedesWebApp\ArchimedesWebApp\bin\ArchimedesWebApp.pdb
+\\csmain\Classes\SE_Project\Development\16-Archimedes\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.dll
+\\csmain\Classes\SE_Project\Development\16-Archimedes\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.pdb
+\\csmain\Classes\SE_Project\Development\16-Archimedes\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.csprojResolveAssemblyReference.cache
