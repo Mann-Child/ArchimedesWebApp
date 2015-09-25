@@ -10,3 +10,9 @@ C:\Users\122200\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\bin\ArchimedesW
 C:\Users\122200\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.csprojResolveAssemblyReference.cache
 C:\Users\122200\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.dll
 C:\Users\122200\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.pdb
+C:\Users\121372\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\bin\ArchimedesWebApp.dll.config
+C:\Users\121372\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\bin\ArchimedesWebApp.dll
+C:\Users\121372\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\bin\ArchimedesWebApp.pdb
+C:\Users\121372\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.csprojResolveAssemblyReference.cache
+C:\Users\121372\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.dll
+C:\Users\121372\Desktop\GitHub\ArchimedesWebApp\ArchimedesWebApp\obj\Debug\ArchimedesWebApp.pdb
