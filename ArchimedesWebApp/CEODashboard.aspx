@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 id="page_title">CEO Dashboard</h1>
+    <h2 id="page_title">CEO Dashboard</h2>
     <div id="page_content">
        <div id="add_team">
           <div>
@@ -12,7 +12,7 @@
                  CssClass="checkbox"/>
               <asp:Label ID="lblViewOldTeams" runat="server"
                   AssociatedControlID="cbViewOldTeams"
-                  Text="Show Old Teams?"/>
+                  Text="Show Old Teams"/>
               <asp:HiddenField ID="hfViewOldTeams" runat="server" Value="N"/>
           </div>
           <div>

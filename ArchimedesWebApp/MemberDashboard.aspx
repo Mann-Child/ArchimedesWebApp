@@ -4,8 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Member Dashboard</h1>
-    <h2><asp:Label ID="lblMemberName" runat="server" /></h2>
+    <h2 id="page_title">Member Dashboard &#8226; <span><asp:Label ID="lblMemberName" runat="server" /></span></h2>
     <asp:GridView ID="GVTimeLogs" runat="server" AutoGenerateColumns="False" DataSourceID="DSTimeLogs">
         <Columns>
             <asp:TemplateField HeaderText="Date/Time Created">

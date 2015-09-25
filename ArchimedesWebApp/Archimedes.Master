@@ -16,9 +16,9 @@
       <img src="ceoLogo.png" id="logo" />
       <h1>ARCHIMEDES</h1>
       <div id="header_links">
-         <a href="#">Home</a>
-         <a href="#">Team</a>
-         <a href="#">User</a>
+         <a href="/CEODashboard.aspx">Home</a>
+         <a href="/TeamDashboard.aspx">Team</a>
+         <a href="/MemberDashboard.aspx">User</a>
       </div>
    </div>
     <form id="form1" runat="server">

@@ -20,7 +20,7 @@ h1, h2, h3
 
     h2
     {
-        font-size: 20px;
+        font-size: 28px;
     }
 
     h3, th
@@ -58,26 +58,28 @@ h1, h2, h3
 
 #add_team, #leave_comment
 {
-   background: -webkit-linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* For Safari 5.1 to 6.0 */
-   background: -o-linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* For Opera 11.1 to 12.0 */
-   background: -moz-linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* For Firefox 3.6 to 15 */
-   background: linear-gradient(rgba(255, 60, 12, 0.5), rgba(255, 255, 255, 0.5)); /* Standard syntax */
+   background: -webkit-linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* Standard syntax */
 
    padding: 15px;
-   display: inline-block;
+   float:left;
    margin: 0px;
    height: 500px;
 
-   width: 300px;
+   width: 20%;
 }
 
 #member_table
 {
+   /*
    position: fixed;
-   top: 149px;
-   left: 330px;
-   margin-right: 5%;
-   width: auto;
+   top: 139px;
+   left: 330px;*/
+   display:inline-block;
+   margin: 0px;
+   width: 75%;
 }
 
 /* div
@@ -90,7 +92,7 @@ h1, h2, h3
 
 table
 {
-    margin: auto;
+    margin-right: 0%;
     width: 100%;
     background-color: rgba(255, 60, 12, 0.25);
     border: none;
@@ -101,8 +103,14 @@ table
         text-align: left;
         border-top: none;
         border-bottom: none;
-        border-left: 1px solid white;
+        border-left: 1px solid rgb(255,255,255);
+        border-right: none;
         padding-left: 5px;
+    }
+
+    th:first-child, td:first-child
+    {
+       border-left:none;
     }
 
     tr:nth-child(odd)
@@ -111,17 +119,11 @@ table
     }
 
     tr:first-child {
-        background-color: rgba(255, 60, 12, 0.5);
+        background-color: rgba(255, 60, 12, 0.75);
     }
-
-.team_name
-{
-    background-color: rgba(0,0,0,0);
-}
 
 .member_name, .work_cat
 {
-    background-color: rgba(0,0,0,0);
     text-align: left;
     width: 95%;
     margin: auto;
@@ -130,7 +132,7 @@ table
 a:link
 {
     text-decoration: none;
-    color: black;
+    color: rgb(0,0,0);
 }
 
     #header_links a:link
@@ -147,19 +149,19 @@ a:visited
 
    table a:visited
    {
-       color: black;
+       color: rgb(0,0,0);
    }
 
 a:hover, submit:hover, input:hover, option:hover
 {
     background-color: rgba(255, 60, 12, 1);
-    color: white;
+    color: rgb(255,255,255);
 }
 
     #header_links a:hover
     {
         border: 2px solid #555;
-        background-color: rgba(128, 128, 128, 0.5);
+        background-color: rgba(128, 128, 128, 0.25);
     }
 
 a:active
@@ -167,7 +169,7 @@ a:active
     color: rgba(0, 0, 0, 1);
 }
 
-input, sumbit, select
+input, sumbit, select, option
 {
     border: none;
     font: 16px "Tahoma", "Geneva", sans-serif;
@@ -176,14 +178,14 @@ input, sumbit, select
     width: 100%;
 }
 
-.checkbox
+.box
 {
-    float: right;
-    width: 13px;
+    display: inline-block;
 }
 
-.checkbox::after
+.checkbox
 {
-    float:unset;
-    float:none;
+    display: inline-block;
+    width: 13px;
+    margin-right: 10px;
 }

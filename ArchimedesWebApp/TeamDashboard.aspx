@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h1>
+    <h2 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h2>
     <div class="page_content">
         <div id="leave_comment">
            <h3>Assign Users to Teams</h3>
@@ -20,17 +20,19 @@
                AssociatedControlID="txtTeamComment" />
            <asp:TextBox ID="txtTeamComment" runat="server"
                Rows="5" />
-
-           <asp:CheckBox ID="cbTeamLeaderVisible" runat="server"
-               Checked="true"
-               OnCheckedChanged="cbTeamLeaderVisible_CheckedChanged"
-               CssClass="checkbox"/>
-           <asp:Label ID="lblTeamLeaderVisible" runat="server"
-               AssociatedControlID="cbTeamLeaderVisible"
-               Text="Visible to Team Leader and PM" />
-           <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
-               Value="Y" />
-
+           
+           <div class="box">                                         
+              <asp:CheckBox ID="cbTeamLeaderVisible" runat="server"
+                  Checked="true"
+                  OnCheckedChanged="cbTeamLeaderVisible_CheckedChanged"
+                  CssClass="checkbox"/>
+              <asp:Label ID="lblTeamLeaderVisible" runat="server"
+                  AssociatedControlID="cbTeamLeaderVisible"
+                  Text="Visible to Team Leader and PM" />
+              <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
+                  Value="Y" />
+           </div>
+           <div class="box">                                 
            <asp:CheckBox ID="cbGenerallyVisible" runat="server"
                Checked="true"
                OnCheckedChanged="cbGenerallyVisible_CheckedChanged"
@@ -40,6 +42,7 @@
                Text="Visible to Everyone" />
            <asp:HiddenField ID="hfGenerallyVisible" runat="server"
                Value="Y" />
+           </div>
 
            <asp:Button ID="btnCreateComment" runat="server"
                OnClick="btnCreateComment_Click"
