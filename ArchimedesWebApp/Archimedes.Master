@@ -21,12 +21,16 @@
          <a href="/MemberDashboard.aspx">User</a>
       </div>
    </div>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+   <div id="page_content">
+       <form id="form1" runat="server">
+       <div>
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+           </asp:ContentPlaceHolder>
+       </div>
+       </form>
+
+   </div>
+   <div id="footer"><p>&#169; 2015 - Software Engineers Incorporated</p></div>
 </body>
 </html>

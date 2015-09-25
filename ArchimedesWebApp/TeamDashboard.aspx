@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h2>
-    <div class="page_content">
+    <div class="page_data">
         <div id="leave_comment">
            <h3>Assign Users to Teams</h3>
            <asp:DropDownList ID="ddlUsers" runat="server"
