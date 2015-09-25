@@ -1,0 +1,21 @@
+/* This is the Known Issues Page */
+/* Feel free to add things or    */
+/* check things off when fixed   */
+
+As of 9/25/2015:
+ > On the CEO Dashboard
+   - When page loads for the first time, the header links "Team" and "User" are broken
+   - When page width is less than 600px, the "Team" table floats downward
+   - "Show Old Teams" option does nothing
+ > On the Team Dashboard
+   - When page width is less than 617px, the "Member" table floats downward
+   - Comments made on one team's page will appear on both teams
+   - Comment input only one line
+   - Comment page buttons need to be styled
+   - If a member has hours logged for a previous project, those hours logged will be added to the current project
+ > On the Member Dashboard
+   - Date/Time format unclear; Perhaps have Time Start and Time End
+   - Hours logged needs to be formatted to 2 decimal places
+ > General Issues/Areas in need of improvement
+   - Indentation needs alignment
+   - Needs a footer
