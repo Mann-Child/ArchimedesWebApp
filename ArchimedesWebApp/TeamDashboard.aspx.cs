@@ -48,7 +48,7 @@ namespace ArchimedesWebApp
             String[] args = new String[2];
             args = e.CommandArgument.ToString().Split(';');
             Session["UserID"] = args[0];
-            Session["UserName"] = args[1];
+            Session["MemberName"] = args[1];
 
             Response.Redirect("~/MemberDashboard.aspx");
         }

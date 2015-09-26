@@ -11,7 +11,13 @@ namespace ArchimedesWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblMemberName.Text = Session["UserName"].ToString();
+            lblMemberName.Text = Session["MemberName"].ToString();
+        }
+
+        protected void btnCreateComment_Click(object sender, EventArgs e)
+        {
+            dsMemberComments.Insert();
+            txtMemberComment.Text = String.Empty;
         }
     }
 }
