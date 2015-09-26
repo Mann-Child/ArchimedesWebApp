@@ -1,2 +1,4 @@
-.vs/config/applicationhost.config
-ArchimedesWebApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+.vs
+ArchimedesWebApp/bin
+ArchimedesWebApp/obj
+ArchimedesWebApp/obj/Debug

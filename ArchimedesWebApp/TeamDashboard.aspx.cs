@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace ArchimedesWebApp
 {
@@ -17,7 +18,6 @@ namespace ArchimedesWebApp
                 string current_user_id = current_login_id.Substring(current_login_id.LastIndexOf('\\') + 1);
                 HttpContext.Current.Session["username"] = current_user_id;
             }
-
             lblTeamName.Text = Session["TeamName"].ToString();
         }
 
@@ -48,7 +48,7 @@ namespace ArchimedesWebApp
             String[] args = new String[2];
             args = e.CommandArgument.ToString().Split(';');
             Session["UserID"] = args[0];
-            Session["UserName"] = args[1];
+            Session["MemberName"] = args[1];
 
             Response.Redirect("~/MemberDashboard.aspx");
         }
