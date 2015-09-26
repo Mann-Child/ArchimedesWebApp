@@ -72,7 +72,7 @@
 <asp:SqlDataSource ID="DSTimeLogs" 
                    runat="server" 
     ConnectionString="<%$ ConnectionStrings:SEI_TimeMachine2ConnectionString %>" 
-    SelectCommand="SELECT entry.entry_begin_time, entry.entry_total_time / 60.0 AS hours_logged, category.category_name 
+    SelectCommand="SELECT entry.entry_begin_time, CAST((entry.entry_total_time / 60.0) AS numeric(36,2)) AS hours_logged, category.category_name 
                     FROM [SEI_TimeMachine2].[dbo].[ENTRY] 
                     JOIN [SEI_TimeMachine2].[dbo].[CATEGORY] ON (entry.entry_category_id = category.category_id) 
                     WHERE entry.[entry_user_id] = @UserID;">
