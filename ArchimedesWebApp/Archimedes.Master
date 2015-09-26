@@ -16,7 +16,7 @@
       <img src="ceoLogo.png" id="logo" />
       <h1>ARCHIMEDES</h1>
       <div id="header_links">
-         <a href="/CEODashboard.aspx">Home</a>
+         <a href="CEODashboard.aspx">Home</a>
          <a href="/TeamDashboard.aspx">Team</a>
          <a href="/MemberDashboard.aspx">User</a>
       </div>
