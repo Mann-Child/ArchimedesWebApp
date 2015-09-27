@@ -12,21 +12,30 @@
 </head>
 
 <body>
-   <div id="header">
-      <img src="ceoLogo.png" id="logo" />
-      <h1>ARCHIMEDES</h1>
-      <div id="header_links">
-         <a href="CEODashboard.aspx">Home</a>
-         <a href="/TeamDashboard.aspx">Team</a>
-         <a href="/MemberDashboard.aspx">User</a>
-      </div>
-   </div>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+       <div id="header">
+          <img src="ceoLogo.png" id="logo" />
+          <h1>ARCHIMEDES</h1>
+          <div id="header_links">
+             <asp:LinkButton ID="btnHome" runat="server"
+                 OnClick="btnHome_Click">
+                 Home
+             </asp:LinkButton>
+             <asp:LinkButton ID="btnTeam" runat="server"
+                 OnClick="btnTeam_Click">
+                 Team
+             </asp:LinkButton>
+             <asp:LinkButton ID="btnMember" runat="server"
+                 OnClick="btnMember_Click">
+                 User
+             </asp:LinkButton>
+          </div>
+       </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>
