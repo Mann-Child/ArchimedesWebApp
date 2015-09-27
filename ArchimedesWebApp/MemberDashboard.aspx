@@ -94,6 +94,7 @@
      	            [USER].user_last_name + ', ' + [USER].user_first_name AS user_name
               FROM SEI_Archimedes.dbo.Member_Comments
 	               JOIN SEI_TimeMachine2.dbo.[USER] ON (Member_Comments.comment_user_id = [USER].[user_id])
+                   WHERE Member_Comments.user_id = @user_id
                 ORDER BY comment_timestamp DESC"
     InsertCommand="
                 INSERT INTO SEI_Archimedes.dbo.Member_Comments (
@@ -101,6 +102,9 @@
                 ) VALUES (
                     @user_id, @visible_to_leaders, @visible_to_everyone, @comment, SYSDATETIME(), @comment_user_id
                 );" >
+    <SelectParameters>
+        <asp:SessionParameter Name="user_id" SessionField ="UserID" />
+    </SelectParameters>
     <InsertParameters>
          <asp:SessionParameter Name="user_id" SessionField="UserID" />
          <asp:ControlParameter Name="visible_to_leaders" ControlID="hfTeamLeaderVisible" PropertyName="Value" />
