@@ -1,6 +1,6 @@
-.vs
+.vs/
 .vs/ArchimedesWebApp/v14/.suo
 .vs/config/applicationhost.config
-ArchimedesWebApp/bin
-ArchimedesWebApp/obj
-ArchimedesWebApp/obj/Debug
+ArchimedesWebApp/bin/
+ArchimedesWebApp/obj/
+ArchimedesWebApp/obj/Debug/
