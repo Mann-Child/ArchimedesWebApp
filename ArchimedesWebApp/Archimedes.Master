@@ -12,28 +12,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-   <div id="header">
-      <img src="ceoLogo.png" id="logo" />
-      <h1>ARCHIMEDES</h1>
-      <div id="header_links">
-         <a href="/CEODashboard.aspx">Home</a>
-         <a href="/TeamDashboard.aspx">Team</a>
-         <a href="/MemberDashboard.aspx">User</a>
-      </div>
-   </div>
-   <div id="page_content">
-       <form id="form1" runat="server">
-       <div>
-           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-           </asp:ContentPlaceHolder>
-       </div>
-       </form>
-
-   </div>
-   <div id="footer"><p>&#169; 2015 - Software Engineers Incorporated</p></div>
-=======
     <form id="form1" runat="server">
        <div id="header">
           <img src="ceoLogo.png" id="logo" />
@@ -59,6 +37,6 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
->>>>>>> 4edf62528f1c3b92e26f143c356ab83412769634
+   <div id="footer"><p>&#169; 2015 - Software Engineers Incorporated</p></div>
 </body>
 </html>

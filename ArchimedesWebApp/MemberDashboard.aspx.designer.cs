@@ -40,15 +40,6 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.TextBox txtMemberComment;
         
         /// <summary>
-        /// CreateCommentButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateCommentButton;
-        
-        /// <summary>
         /// hfTeamLeaderVisible control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace ArchimedesWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfGenerallyVisible;
+        
+        /// <summary>
+        /// CreateCommentButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreateCommentButton;
         
         /// <summary>
         /// GVTimeLogs control.

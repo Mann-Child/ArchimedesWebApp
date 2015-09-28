@@ -19,7 +19,7 @@
                Text="Write Comment:"
                AssociatedControlID="txtTeamComment" />
            <asp:TextBox ID="txtTeamComment" runat="server"
-               Rows="5" />
+               TextMode="MultiLine" Rows="5" />
            
            <div class="box">                                         
               <asp:CheckBox ID="cbTeamLeaderVisible" runat="server"

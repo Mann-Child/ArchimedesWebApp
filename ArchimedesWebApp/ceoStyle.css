@@ -174,13 +174,14 @@ a:active
     color: rgba(0, 0, 0, 1);
 }
 
-input, sumbit, select, option
+input, sumbit, select, option, textarea
 {
     border: none;
     font: 16px "Tahoma", "Geneva", sans-serif;
     background-color: rgba(255, 60, 12, 0.5);
     color: rgba(0, 0, 0, 1);
     width: 100%;
+    margin-bottom: 2px;
 }
 
 .box
