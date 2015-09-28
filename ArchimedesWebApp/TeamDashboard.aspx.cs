@@ -12,6 +12,8 @@ namespace ArchimedesWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string tl_id;
+            string pm_id;
             if (HttpContext.Current.Session["username"] == null)
             {
                 string current_login_id = HttpContext.Current.User.Identity.Name;
@@ -19,6 +21,32 @@ namespace ArchimedesWebApp
                 HttpContext.Current.Session["username"] = current_user_id;
             }
             lblTeamName.Text = Session["TeamName"].ToString();
+
+            string ArchimedesConnectionString = "Data Source=csdb;Initial Catalog=SEI_Archimedes;Integrated Security=True;";
+            SqlConnection connection = new SqlConnection(ArchimedesConnectionString);
+
+            using (connection)
+            {
+                SqlCommand get_team_key = new SqlCommand(@"SELECT [team_leader_user_id],[pm_user_id]
+                                                             FROM [SEI_Archimedes].[dbo].[Teams]
+                                                            WHERE [SEI_Archimedes].[dbo].[Teams].[team_key] = " + HttpContext.Current.Session["TeamKey"] + ";", connection);
+                connection.Open();
+                SqlDataReader reader = get_team_key.ExecuteReader();
+                reader.Read();
+                pm_id = reader.GetString(0);
+                tl_id = reader.GetString(1);
+                reader.Close();
+                connection.Close();
+            }
+
+            if (HttpContext.Current.Session["username"].ToString() != pm_id && HttpContext.Current.Session["username"].ToString() != tl_id && HttpContext.Current.Session["username"].ToString() != HttpContext.Current.Session["ceo_id"].ToString())
+            {
+                cbTeamLeaderVisible.Visible = false;
+                cbGenerallyVisible.Visible = false;
+                lblTeamLeaderVisible.Visible = false;
+                lblGenerallyVisible.Visible = false;
+                GridView2.Visible = false;
+            }
         }
 
         protected void btnAssignToTeam_Click(Object sender, EventArgs e)

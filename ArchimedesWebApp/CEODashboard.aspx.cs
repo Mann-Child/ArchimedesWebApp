@@ -18,13 +18,13 @@ namespace ArchimedesWebApp
             string TimeMachineconnection = "Data Source=csdb;Initial Catalog=SEI_TimeMachine2;Integrated Security=True;";
             SqlConnection connection1 = new SqlConnection(TimeMachineconnection);
 
-            /*if (HttpContext.Current.Session["username"] == null)
+            if (HttpContext.Current.Session["username"] == null)
             {
                 string current_login_id = HttpContext.Current.User.Identity.Name;
                 string current_user_id = current_login_id.Substring(current_login_id.LastIndexOf('\\') + 1);
                 HttpContext.Current.Session["username"] = current_user_id;
-            }*/
-            HttpContext.Current.Session["username"] = "mgeary";
+            }
+            //HttpContext.Current.Session["username"] = "mgeary";
             using (connection1)
             {
                 // Get CEO ID
@@ -35,12 +35,12 @@ namespace ArchimedesWebApp
                 connection1.Open();
                 SqlDataReader reader = get_ceo_id.ExecuteReader();
                 reader.Read();
-                ceo_id = reader.GetString(0);
+                HttpContext.Current.Session["ceo_id"] = reader.GetString(0);
                 reader.Close();
                 connection1.Close();
             }
 
-            if(ceo_id != HttpContext.Current.Session["username"].ToString())
+            if(HttpContext.Current.Session["ceo_id"].ToString() != HttpContext.Current.Session["username"].ToString())
             {
                 // Create Data Source Connection String
                 string ArchimedesConnectionString = "Data Source=csdb;Initial Catalog=SEI_Archimedes;Integrated Security=True;";
