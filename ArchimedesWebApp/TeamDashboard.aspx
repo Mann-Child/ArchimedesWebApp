@@ -5,15 +5,16 @@
     <h2 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h2>
     <div class="page_data">
         <div id="leave_comment">
-           <h3>Assign Users to Teams</h3>
-           <asp:DropDownList ID="ddlUsers" runat="server"
-               DataSourceID="dsUsers"
-               DataTextField="user_fullname"
-               DataValueField="user_id" />
-           <asp:Button ID="Button1" runat="server"
-               Text="Assign"
-               OnClick="btnAssignToTeam_Click" />
-           
+           <div id="ceo_privilege">
+              <h3>Assign Users to Teams</h3>
+              <asp:DropDownList ID="ddlUsers" runat="server"
+                  DataSourceID="dsUsers"
+                  DataTextField="user_fullname"
+                  DataValueField="user_id" />
+              <asp:Button ID="Button1" runat="server"
+                  Text="Assign"
+                  OnClick="btnAssignToTeam_Click" />
+           </div>
            <h3>Leave Comment</h3>
            <asp:Label ID="lblTeamComment" runat="server"
                Text="Write Comment:"

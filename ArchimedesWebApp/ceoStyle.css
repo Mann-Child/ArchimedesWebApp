@@ -181,7 +181,7 @@ input, sumbit, select, option, textarea
     background-color: rgba(255, 60, 12, 0.5);
     color: rgba(0, 0, 0, 1);
     width: 100%;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .box

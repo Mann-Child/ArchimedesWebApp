@@ -24,6 +24,10 @@ Issues Fixed:
 
 
 As of 9/28/2015:
+ > On the Team Dashboard
+   - TL and PM comment box shows all comments
+   - Regular users can add or remove users
+   - Member name in the header links?? I don't think it's necessary --Paul
  > General Issues/Areas in need of improvement
    - Longer comments stretch the table, need to be wrapped
 
