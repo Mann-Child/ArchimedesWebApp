@@ -12,6 +12,14 @@ namespace ArchimedesWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblMemberName.Text = Session["MemberName"].ToString();
+        }
+
+        protected void btnCreateComment_Click(object sender, EventArgs e)
+        {
+            dsMemberComments.Insert();
+            txtMemberComment.Text = String.Empty;
+
             if (Session["MemberName"] == null)
             {
                 string TimeMachineConnectionString = "Data Source=csdb;Initial Catalog=SEI_Archimedes;Integrated Security=True;";
@@ -35,6 +43,7 @@ namespace ArchimedesWebApp
             {
                 Session["UserID"] = HttpContext.Current.Session["username"];
             }
+
         }
     }
 }
