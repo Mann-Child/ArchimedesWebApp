@@ -7,25 +7,6 @@
     <h2 id="page_title">Member Dashboard &#8226; <span>
         <asp:Label ID="lblMemberName" runat="server" /></span></h2>
        <div id="page_data">
-          <div id="leave_comment">
-        <asp:Label ID="lblMemberComment" runat="server"
-               Text="Write Comment:"
-               AssociatedControlID="txtMemberComment" />
-
-       <asp:TextBox ID="txtMemberComment" runat="server"
-               TextMode="multiline" Rows="5" />
-                        
-       <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
-               Value="Y" />
-
-       <asp:HiddenField ID="hfGenerallyVisible" runat="server"
-               Value="Y" />
-
-       <asp:Button ID="CreateCommentButton" runat="server"
-               OnClick="btnCreateComment_Click"
-               Text="Leave Comment" />
-
-           </div>
           <div id="member_table">
     <asp:GridView ID="GVTimeLogs" runat="server" AutoGenerateColumns="False" DataSourceID="DSTimeLogs">
         <Columns>
@@ -71,6 +52,25 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+
+           </div>
+          <div id="leave_comment">
+        <asp:Label ID="lblMemberComment" runat="server"
+               Text="Write Comment:"
+               AssociatedControlID="txtMemberComment" />
+
+       <asp:TextBox ID="txtMemberComment" runat="server"
+               TextMode="multiline" Rows="5" />
+                        
+       <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
+               Value="Y" />
+
+       <asp:HiddenField ID="hfGenerallyVisible" runat="server"
+               Value="Y" />
+
+       <asp:Button ID="CreateCommentButton" runat="server"
+               OnClick="btnCreateComment_Click"
+               Text="Leave Comment" />
 
            </div>
         </div>
