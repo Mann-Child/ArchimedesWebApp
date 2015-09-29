@@ -22,20 +22,7 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.Label lblTeamName;
         
         /// <summary>
-<<<<<<< HEAD
         /// gvTeamMembers control.
-=======
-        /// CEOseeing control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CEOseeing;
-        
-        /// <summary>
-        /// ddlUsers control.
->>>>>>> e8ec5b84c56f0fc057458054c77247e3207b8c2f
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -78,6 +65,15 @@ namespace ArchimedesWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsTeamMembers;
+        
+        /// <summary>
+        /// CEOseeing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CEOseeing;
         
         /// <summary>
         /// ddlUsers control.
