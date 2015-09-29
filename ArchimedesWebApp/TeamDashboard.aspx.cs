@@ -42,10 +42,15 @@ namespace ArchimedesWebApp
             if (HttpContext.Current.Session["username"].ToString() != pm_id && HttpContext.Current.Session["username"].ToString() != tl_id && HttpContext.Current.Session["username"].ToString() != HttpContext.Current.Session["ceo_id"].ToString())
             {
                 cbTeamLeaderVisible.Visible = false;
+                cbTeamLeaderVisible.Checked = false;
                 cbGenerallyVisible.Visible = false;
                 lblTeamLeaderVisible.Visible = false;
                 lblGenerallyVisible.Visible = false;
                 GridView2.Visible = false;
+            }
+            if(HttpContext.Current.Session["username"].ToString() != HttpContext.Current.Session["ceo_id"].ToString())
+            {
+                CEOseeing.Visible = false;
             }
         }
 
