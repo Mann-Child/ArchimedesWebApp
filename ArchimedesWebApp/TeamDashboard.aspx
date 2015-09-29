@@ -5,6 +5,7 @@
     <h2 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h2>
     <div class="page_content">
         <div id="leave_comment">
+            <div id="CEOseeing" runat="server">
            <h3>Assign Users to Teams</h3>
            <asp:DropDownList ID="ddlUsers" runat="server"
                DataSourceID="dsUsers"
@@ -13,7 +14,8 @@
            <asp:Button ID="Button1" runat="server"
                Text="Assign"
                OnClick="btnAssignToTeam_Click" />
-           
+           </div>
+
            <h3>Leave Comment</h3>
            <asp:Label ID="lblTeamComment" runat="server"
                Text="Write Comment:"

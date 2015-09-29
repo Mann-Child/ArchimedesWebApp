@@ -182,7 +182,11 @@
 	                   team_name, active, course_id, project_id, team_leader_user_id, pm_user_id
                    ) VALUES (
 	                   @team_name, 'Y', @course_id, @project_id, @team_leader_user_id, @pm_user_id
-                   )"
+                   );
+                   INSERT INTO SEI_Archimedes.dbo.Team_Linking
+                       (user_id, team_key)
+                    VALUES
+                       (@team_leader_user_id, @team_key)"
                DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Teams WHERE Teams.team_key = @team_key">
                <SelectParameters>
                    <asp:ControlParameter Name="show_old_teams" ControlID="hfViewOldTeams" PropertyName="Value" />
