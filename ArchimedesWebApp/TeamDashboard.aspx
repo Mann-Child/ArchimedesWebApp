@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h2>
-    <div class="page_content">
+    <div class="page_data">
         <div id="leave_comment">
             <div id="CEOseeing" runat="server">
            <h3>Assign Users to Teams</h3>
@@ -15,13 +15,12 @@
                Text="Assign"
                OnClick="btnAssignToTeam_Click" />
            </div>
-
            <h3>Leave Comment</h3>
            <asp:Label ID="lblTeamComment" runat="server"
                Text="Write Comment:"
                AssociatedControlID="txtTeamComment" />
            <asp:TextBox ID="txtTeamComment" runat="server"
-               Rows="5" />
+               TextMode="MultiLine" Rows="5" />
            
            <div class="box">                                         
               <asp:CheckBox ID="cbTeamLeaderVisible" runat="server"

@@ -6,24 +6,27 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 id="page_title">Member Dashboard &#8226; <span>
         <asp:Label ID="lblMemberName" runat="server" /></span></h2>
+       <div id="page_data">
+          <div id="leave_comment">
+        <asp:Label ID="lblMemberComment" runat="server"
+               Text="Write Comment:"
+               AssociatedControlID="txtMemberComment" />
 
-     <asp:Label ID="lblMemberComment" runat="server"
-            Text="Write Comment:"
-            AssociatedControlID="txtMemberComment" />
+       <asp:TextBox ID="txtMemberComment" runat="server"
+               TextMode="multiline" Rows="5" />
+                        
+       <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
+               Value="Y" />
 
-    <asp:TextBox ID="txtMemberComment" runat="server"
-            Rows="5" />
+       <asp:HiddenField ID="hfGenerallyVisible" runat="server"
+               Value="Y" />
 
-    <asp:Button ID="CreateCommentButton" runat="server"
-            OnClick="btnCreateComment_Click"
-            Text="Leave Comment" />
+       <asp:Button ID="CreateCommentButton" runat="server"
+               OnClick="btnCreateComment_Click"
+               Text="Leave Comment" />
 
-    <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
-            Value="Y" />
-
-    <asp:HiddenField ID="hfGenerallyVisible" runat="server"
-            Value="Y" />
-
+           </div>
+          <div id="member_table">
     <asp:GridView ID="GVTimeLogs" runat="server" AutoGenerateColumns="False" DataSourceID="DSTimeLogs">
         <Columns>
             <asp:TemplateField HeaderText="Date/Time Created">
@@ -69,6 +72,8 @@
             </Columns>
         </asp:GridView>
 
+           </div>
+        </div>
 <asp:SqlDataSource ID="DSTimeLogs" 
                    runat="server" 
     ConnectionString="<%$ ConnectionStrings:SEI_TimeMachine2ConnectionString %>" 

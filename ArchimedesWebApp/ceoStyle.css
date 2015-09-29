@@ -52,6 +52,11 @@ h1, h2, h3
 
 #page_content
 {
+   height: 600px !important;
+}
+
+#page_data
+{
     width: 100%;
     margin: auto;
 }
@@ -64,7 +69,7 @@ h1, h2, h3
    background: linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* Standard syntax */
 
    padding: 15px;
-   float:left;
+   float: left;
    margin: 0px;
    height: 500px;
 
@@ -169,13 +174,14 @@ a:active
     color: rgba(0, 0, 0, 1);
 }
 
-input, sumbit, select, option
+input, sumbit, select, option, textarea
 {
     border: none;
     font: 16px "Tahoma", "Geneva", sans-serif;
     background-color: rgba(255, 60, 12, 0.5);
     color: rgba(0, 0, 0, 1);
     width: 100%;
+    margin-bottom: 5px;
 }
 
 .box
@@ -189,3 +195,20 @@ input, sumbit, select, option
     width: 13px;
     margin-right: 10px;
 }
+
+#footer
+{
+   clear: unset;
+   position: fixed;
+   bottom: 0px;
+   background: rgba(0,0,0,1);
+   height: 25px;
+   width: 100%;
+}
+   #footer p
+   {
+      font: 10px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+      color: rgba(255,255,255,1);
+      margin-left: 10px;
+      margin-top: 0px;
+   }

@@ -23,6 +23,7 @@ namespace ArchimedesWebApp
                 HttpContext.Current.Session["username"] = "121372"; //current_user_id
             }*/
             HttpContext.Current.Session["username"] = "mgeary";
+
             using (connection1)
             {
                 // Get CEO ID

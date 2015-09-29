@@ -37,5 +37,6 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
+   <div id="footer"><p>&#169; 2015 - Software Engineers Incorporated</p></div>
 </body>
 </html>
