@@ -12,8 +12,6 @@ namespace ArchimedesWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String ceo_id;
-
             // Create Data Source Connection String
             string TimeMachineconnection = "Data Source=csdb;Initial Catalog=SEI_TimeMachine2;Integrated Security=True;";
             SqlConnection connection1 = new SqlConnection(TimeMachineconnection);
@@ -22,9 +20,12 @@ namespace ArchimedesWebApp
             {
                 string current_login_id = HttpContext.Current.User.Identity.Name;
                 string current_user_id = current_login_id.Substring(current_login_id.LastIndexOf('\\') + 1);
-                // HttpContext.Current.Session["username"] = current_user_id; /* 1. Comment out to log in as CEO, otherwise leave un-commented */
+
+                HttpContext.Current.Session["username"] = current_user_id; /* 1. Comment out to log in as CEO, otherwise leave un-commented */
             }
-            HttpContext.Current.Session["username"] = "mgeary";         /* 2. Un-comment to log in as CEO, otherwise leave commented out */
+            // HttpContext.Current.Session["username"] = "mgeary";         /* 2. Un-comment to log in as CEO, otherwise leave commented out */
+
+
             using (connection1)
             {
                 // Get CEO ID
