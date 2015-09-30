@@ -139,24 +139,6 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.SqlDataSource dsCourse;
         
         /// <summary>
-        /// lblTeamLeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeamLeader;
-        
-        /// <summary>
-        /// ddlTeamLeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTeamLeader;
-        
-        /// <summary>
         /// lblProjectManager control.
         /// </summary>
         /// <remarks>

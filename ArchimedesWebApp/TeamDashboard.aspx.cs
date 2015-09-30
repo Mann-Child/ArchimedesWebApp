@@ -27,16 +27,21 @@ namespace ArchimedesWebApp
 
             using (connection)
             {
-                SqlCommand get_team_key = new SqlCommand(@"SELECT [team_leader_user_id],[pm_user_id]
+                SqlCommand get_team_key = new SqlCommand(@"SELECT ISNULL([team_leader_user_id], ''), ISNULL([pm_user_id], '')
                                                              FROM [SEI_Archimedes].[dbo].[Teams]
                                                             WHERE [SEI_Archimedes].[dbo].[Teams].[team_key] = " + HttpContext.Current.Session["TeamKey"] + ";", connection);
                 connection.Open();
                 SqlDataReader reader = get_team_key.ExecuteReader();
                 reader.Read();
-                pm_id = reader.GetString(0);
-                tl_id = reader.GetString(1);
+                tl_id = reader.GetString(0);
+                pm_id = reader.GetString(1);
                 reader.Close();
                 connection.Close();
+            }
+
+            if (tl_id != String.Empty)
+            {
+                gvTeamMembers.Columns[4].Visible = false;
             }
 
             if (HttpContext.Current.Session["username"].ToString() != pm_id && HttpContext.Current.Session["username"].ToString() != tl_id && HttpContext.Current.Session["username"].ToString() != HttpContext.Current.Session["ceo_id"].ToString())
@@ -90,8 +95,15 @@ namespace ArchimedesWebApp
         }
         protected void btnUserDelete_Command(Object sender, CommandEventArgs e)
         {
-            hfDeleteUserKey.Value = e.CommandArgument.ToString();
+            hfDeleteUserID.Value = e.CommandArgument.ToString();
             dsTeamMembers.Delete();
+        }
+
+        protected void btnMakeTeamLeader_Command(object sender, CommandEventArgs e)
+        {
+            hfMakeTLUserID.Value = e.CommandArgument.ToString();
+            dsTeamMembers.Update();
+            gvTeamMembers.DataBind();
         }
     }
 }
