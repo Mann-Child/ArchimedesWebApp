@@ -135,9 +135,9 @@
                   DataValueField="project_id" />
               <asp:SqlDataSource ID="dsProject" runat="server"
                   SelectCommand="
-                      SELECT DISTINCT PROJECT.project_name, PROJECT.project_id
-                      FROM SEI_TimeMachine2.dbo.PROJECT
-                      WHERE PROJECT.project_is_enabled = 1;"
+                      SELECT PROJECT.project_name, PROJECT.project_id FROM SEI_TimeMachine2.dbo.PROJECT
+                        JOIN (SELECT project_name, MAX(project_date_created) AS latest_date FROM SEI_TimeMachine2.dbo.PROJECT GROUP BY project_name) latest_project 
+	                        ON (PROJECT.project_date_created = latest_project.latest_date)"
                   ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'>
               </asp:SqlDataSource>
               <br />
