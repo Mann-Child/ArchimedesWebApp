@@ -33,8 +33,8 @@ namespace ArchimedesWebApp
                 connection.Open();
                 SqlDataReader reader = get_team_key.ExecuteReader();
                 reader.Read();
-                pm_id = reader.GetString(0);
-                tl_id = reader.GetString(1);
+                tl_id = reader.GetString(0);
+                pm_id = reader.GetString(1);
                 reader.Close();
                 connection.Close();
             }
@@ -100,6 +100,7 @@ namespace ArchimedesWebApp
         {
             hfMakeTLUserID.Value = e.CommandArgument.ToString();
             dsTeamMembers.Update();
+            gvTeamMembers.DataBind();
         }
     }
 }
