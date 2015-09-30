@@ -165,13 +165,6 @@
                         WHERE Teams.team_key = @team_key
                         GROUP BY [USER].[user_id], [USER].user_last_name, [USER].user_first_name
                     UNION
-                        SELECT [USER].[user_id], [USER].user_last_name + ', ' + [USER].user_first_name AS user_fullname, SUM(log_entry.entry_total_time) AS user_total_time
-                        FROM SEI_Archimedes.dbo.Teams
-                             JOIN SEI_TimeMachine2.dbo.[USER] ON (Teams.team_leader_user_id = [USER].user_id)
-	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] log_entry ON ([USER].[user_id] = log_entry.entry_user_id)
-                        WHERE Teams.team_key = @team_key
-                        GROUP BY [USER].[user_id], [USER].user_last_name, [USER].user_first_name
-                    UNION
                         SELECT team_user.[user_id], team_user.user_last_name + ', ' + team_user.user_first_name AS user_fullname, SUM(log_entry.entry_total_time) AS user_total_time
                         FROM SEI_Archimedes.dbo.Team_Linking
 	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[USER] team_user ON (team_user.[user_id] = Team_Linking.[user_id])

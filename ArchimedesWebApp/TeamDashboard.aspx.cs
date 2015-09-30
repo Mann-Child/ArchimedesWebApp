@@ -27,7 +27,7 @@ namespace ArchimedesWebApp
 
             using (connection)
             {
-                SqlCommand get_team_key = new SqlCommand(@"SELECT [team_leader_user_id],[pm_user_id]
+                SqlCommand get_team_key = new SqlCommand(@"SELECT ISNULL([team_leader_user_id], ''), ISNULL([pm_user_id], '')
                                                              FROM [SEI_Archimedes].[dbo].[Teams]
                                                             WHERE [SEI_Archimedes].[dbo].[Teams].[team_key] = " + HttpContext.Current.Session["TeamKey"] + ";", connection);
                 connection.Open();

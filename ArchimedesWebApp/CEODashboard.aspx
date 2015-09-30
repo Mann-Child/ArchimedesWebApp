@@ -89,14 +89,10 @@
                             Teams.pm_user_id;"
                InsertCommand="
                    INSERT INTO SEI_Archimedes.dbo.Teams(
-	                   team_name, active, course_id, project_id, team_leader_user_id, pm_user_id
+	                   team_name, active, course_id, project_id, pm_user_id
                    ) VALUES (
-	                   @team_name, 'Y', @course_id, @project_id, @team_leader_user_id, @pm_user_id
-                   );
-                   INSERT INTO SEI_Archimedes.dbo.Team_Linking
-                       (user_id, team_key)
-                    VALUES
-                       (@team_leader_user_id, @team_key)"
+	                   @team_name, 'Y', @course_id, @project_id, @pm_user_id
+                   );"
                DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Teams WHERE Teams.team_key = @team_key">
                <SelectParameters>
                    <asp:ControlParameter Name="show_old_teams" ControlID="hfViewOldTeams" PropertyName="Value" />
@@ -105,7 +101,6 @@
                    <asp:ControlParameter Name="team_name" ControlID="txtTeamName" PropertyName="Text" />
                    <asp:ControlParameter Name="project_id" ControlID="ddlProject" PropertyName="SelectedValue" />
                    <asp:ControlParameter Name="course_id" ControlID="ddlCourse" PropertyName="SelectedValue" />
-                   <asp:ControlParameter Name="team_leader_user_id" ControlID="ddlTeamLeader" PropertyName="SelectedValue" />
                    <asp:ControlParameter Name="pm_user_id" ControlID="ddlProjectManager" PropertyName="SelectedValue" />
                </InsertParameters>
                <DeleteParameters>
@@ -140,7 +135,7 @@
                   DataValueField="project_id" />
               <asp:SqlDataSource ID="dsProject" runat="server"
                   SelectCommand="
-                      SELECT PROJECT.project_name, PROJECT.project_id
+                      SELECT DISTINCT PROJECT.project_name, PROJECT.project_id
                       FROM SEI_TimeMachine2.dbo.PROJECT
                       WHERE PROJECT.project_is_enabled = 1;"
                   ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'>
@@ -156,20 +151,11 @@
                   DataValueField="course_id" />
               <asp:SqlDataSource ID="dsCourse" runat="server"
                   SelectCommand="
-                      SELECT COURSE.course_name, COURSE.course_id
+                      SELECT DISTINCT COURSE.course_name, COURSE.course_id
                       FROM SEI_TimeMachine2.dbo.COURSE
                       WHERE COURSE.course_is_enabled = 1;"
                   ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'>
               </asp:SqlDataSource>
-              <br />
-
-              <asp:Label ID="lblTeamLeader" runat="server"
-                  AssociatedControlID="ddlTeamLeader"
-                  Text="Team Leader:" />
-              <asp:DropDownList ID="ddlTeamLeader" runat="server"
-                  DataSourceID="dsUsers"
-                  DataTextField="user_fullname"
-                  DataValueField="user_id" />
               <br />
               <asp:Label ID="lblProjectManager" runat="server"
                   AssociatedControlID="ddlProjectManager"
@@ -181,12 +167,9 @@
               <asp:SqlDataSource ID="dsUsers" runat="server"
                   ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'
                   SelectCommand="
-                      SELECT user_last_name + ', ' + user_first_name AS user_fullname, [user_id]
+                      SELECT DISTINCT user_last_name + ', ' + user_first_name AS user_fullname, [user_id]
                       FROM SEI_TimeMachine2.dbo.[USER]
                       WHERE user_is_enabled = 1
-                        AND [user_id] NOT IN (
-                              SELECT DISTINCT team_leader_user_id
-                                FROM SEI_Archimedes.dbo.Teams)
                         AND [user_id] NOT IN (
                               SELECT DISTINCT pm_user_id
                                 FROM SEI_Archimedes.dbo.Teams)
