@@ -70,7 +70,7 @@
                Value="Y" />
 
        <asp:Button ID="CreateCommentButton" runat="server"
-               OnClick="btnCreateComment_Click"
+               OnClick="btnCreateComment_Click" CssClass="move_down"
                Text="Leave Comment" />
 
            </div>
