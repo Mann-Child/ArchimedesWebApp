@@ -108,14 +108,24 @@
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:LinkButton ID="btnDeleteUser" runat="server"
-                            Text="Delete User"
+                            Text="Remove"
                             CommandArgument='<%# Eval("user_id") %>'
                             OnCommand="btnUserDelete_Command" />
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="btnMakeTeamLeader" runat="server"
+                            Text="Make Team Leader"
+                            CommandArgument='<%# Eval("user_id") %>'
+                            OnCommand="btnMakeTeamLeader_Command" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
-         <asp:HiddenField ID="hfDeleteUserKey" runat="server" />
+        <asp:HiddenField ID="hfDeleteUserID" runat="server" />
+        <asp:HiddenField ID="hfMakeTLUserID" runat="server" />
+
        <div id="comment_section">
         <asp:GridView ID="gvComments" runat="server"
             AllowPaging="true"
@@ -171,13 +181,20 @@
 	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] log_entry ON (team_user.[user_id] = log_entry.entry_user_id)
                         WHERE Team_Linking.team_key = @team_key
                         GROUP BY team_user.[user_id], team_user.user_last_name, team_user.user_first_name"
-                DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Team_Linking WHERE Team_Linking.user_id = @team_user">
+            DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Team_Linking WHERE Team_Linking.user_id = @team_user"
+            UpdateCommand="UPDATE SEI_Archimedes.dbo.Teams
+                           SET team_leader_user_id = @team_leader_user_id
+                           WHERE team_key = @team_key">
             <SelectParameters>
                 <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
             </SelectParameters>
             <DeleteParameters>
-                <asp:ControlParameter Name="team_user" ControlID="hfDeleteUserKey" PropertyName="Value" />
+                <asp:ControlParameter Name="team_user" ControlID="hfDeleteUserID" PropertyName="Value" />
             </DeleteParameters>
+            <UpdateParameters>
+                <asp:ControlParameter Name="team_leader_user_id" ControlID="hfMakeTLUserID" PropertyName="Value" />
+                <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
+            </UpdateParameters>
         </asp:SqlDataSource>
      </div>
       </div>   
@@ -193,10 +210,6 @@
                         SELECT DISTINCT [user_id]
                           FROM SEI_Archimedes.dbo.Team_Linking
                         WHERE Team_Linking.team_key = @team_key)
-                  AND [user_id] NOT IN (
-                        SELECT DISTINCT team_leader_user_id
-                          FROM SEI_Archimedes.dbo.Teams
-                        WHERE Teams.team_key = @team_key)
                   AND [user_id] NOT IN (
                         SELECT DISTINCT pm_user_id
                           FROM SEI_Archimedes.dbo.Teams

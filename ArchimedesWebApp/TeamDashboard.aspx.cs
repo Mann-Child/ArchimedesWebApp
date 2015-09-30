@@ -39,6 +39,11 @@ namespace ArchimedesWebApp
                 connection.Close();
             }
 
+            if (tl_id != String.Empty)
+            {
+                gvTeamMembers.Columns[4].Visible = false;
+            }
+
             if (HttpContext.Current.Session["username"].ToString() != pm_id && HttpContext.Current.Session["username"].ToString() != tl_id && HttpContext.Current.Session["username"].ToString() != HttpContext.Current.Session["ceo_id"].ToString())
             {
                 cbTeamLeaderVisible.Visible = false;
@@ -87,8 +92,14 @@ namespace ArchimedesWebApp
         }
         protected void btnUserDelete_Command(Object sender, CommandEventArgs e)
         {
-            hfDeleteUserKey.Value = e.CommandArgument.ToString();
+            hfDeleteUserID.Value = e.CommandArgument.ToString();
             dsTeamMembers.Delete();
+        }
+
+        protected void btnMakeTeamLeader_Command(object sender, CommandEventArgs e)
+        {
+            hfMakeTLUserID.Value = e.CommandArgument.ToString();
+            dsTeamMembers.Update();
         }
     }
 }

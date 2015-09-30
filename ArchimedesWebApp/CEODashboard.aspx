@@ -170,9 +170,6 @@
                       SELECT DISTINCT user_last_name + ', ' + user_first_name AS user_fullname, [user_id]
                       FROM SEI_TimeMachine2.dbo.[USER]
                       WHERE user_is_enabled = 1
-                        AND [user_id] NOT IN (
-                              SELECT DISTINCT pm_user_id
-                                FROM SEI_Archimedes.dbo.Teams)
                       ORDER BY user_fullname;"
                   DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Team_Linking WHERE team_key = @team_key">
                   <DeleteParameters>
