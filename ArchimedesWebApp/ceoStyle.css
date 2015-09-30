@@ -39,8 +39,10 @@ h1, h2, h3
 
     #logo
     {
+        display: inline-block;
         float: left;
-        width: 42px;
+        width: 67px;
+        margin-right: 5px;
     }
 
 #page_title
@@ -58,7 +60,7 @@ h1, h2, h3
     margin: auto;
 }
 
-#add_team, #leave_comment
+#right_panel
 {
    background: -webkit-linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* For Safari 5.1 to 6.0 */
    background: -o-linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* For Opera 11.1 to 12.0 */
@@ -181,17 +183,22 @@ input, sumbit, select, option, textarea
     margin-bottom: 5px;
 }
 
+submit
+{
+margin-top: 25px;
+}
+
 .box
 {
     display: inline-block;
 }
 
-.checkbox
-{
-    display: inline-block;
-    width: 13px;
-    margin-right: 10px;
-}
+   .checkbox
+   {
+       display: inline-block;
+       width: 13px;
+       margin-right: 10px;
+   }
 
 #footer
 {
@@ -201,13 +208,14 @@ input, sumbit, select, option, textarea
    background: rgba(0,0,0,1);
    height: 25px;
    width: 100%;
+   margin-top: 5px;
 }
    #footer p
    {
       font: 10px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
       color: rgba(255,255,255,1);
       margin-left: 10px;
-      margin-top: 0px;
+      margin-top: 5px;
    }
 
 .comment_header

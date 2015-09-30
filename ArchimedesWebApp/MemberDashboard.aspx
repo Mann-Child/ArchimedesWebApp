@@ -54,7 +54,8 @@
         </asp:GridView>
 
            </div>
-          <div id="leave_comment">
+          <div id="right_panel">
+           <h3>Leave Comment</h3>
         <asp:Label ID="lblMemberComment" runat="server"
                Text="Write Comment:"
                AssociatedControlID="txtMemberComment" />

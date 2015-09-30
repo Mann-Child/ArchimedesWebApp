@@ -31,13 +31,22 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.GridView gvTeamMembers;
         
         /// <summary>
-        /// hfDeleteUserKey control.
+        /// hfDeleteUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfDeleteUserKey;
+        protected global::System.Web.UI.WebControls.HiddenField hfDeleteUserID;
+        
+        /// <summary>
+        /// hfMakeTLUserID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfMakeTLUserID;
         
         /// <summary>
         /// gvComments control.

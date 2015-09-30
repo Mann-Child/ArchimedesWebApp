@@ -36,3 +36,4 @@ As of 9/29/2015:
    - Work on uniformity, in style and in structure
    - organize divs
    - get rid of useless login page
+   - footer in the way
