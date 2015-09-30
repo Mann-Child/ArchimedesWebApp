@@ -139,6 +139,15 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.SqlDataSource dsTeamComments;
         
         /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        
+        /// <summary>
         /// gvTeamMembers control.
         /// </summary>
         /// <remarks>
@@ -166,13 +175,13 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.GridView gvComments;
         
         /// <summary>
-        /// GridView2 control.
+        /// gvTlComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView gvTlComments;
         
         /// <summary>
         /// dsTeamMembers control.

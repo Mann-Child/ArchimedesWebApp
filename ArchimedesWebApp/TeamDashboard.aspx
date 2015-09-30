@@ -52,15 +52,46 @@
            <asp:SqlDataSource ID="dsTeamComments" runat="server"
                ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'
                SelectCommand="
-               SELECT [visible_to_leaders],
-     	               [visible_to_everyone],
-     	               [comment],
+               SELECT  [comment],
      	               [comment_timestamp],
      	               [comment_user_id],
      	               [USER].user_last_name + ', ' + [USER].user_first_name AS user_name
                  FROM SEI_Archimedes.dbo.Team_Comments
 	                  JOIN SEI_TimeMachine2.dbo.[USER] ON (Team_Comments.comment_user_id = [USER].[user_id])
                 WHERE SEI_Archimedes.dbo.Team_Comments.team_key = @team_key
+                  AND SEI_Archimedes.dbo.Team_Comments.visible_to_everyone = 'Y'
+                ORDER BY comment_timestamp DESC;"
+               InsertCommand="
+                   INSERT INTO SEI_Archimedes.dbo.Team_Comments (
+                       team_key, visible_to_leaders, visible_to_everyone, comment, comment_timestamp, comment_user_id
+                   ) VALUES (
+                       @team_key, @visible_to_leaders, @visible_to_everyone, @comment, SYSDATETIME(), @comment_user_id
+                   );" >
+               <SelectParameters>
+                   <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
+               </SelectParameters>
+               <InsertParameters>
+                   <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
+                   <asp:ControlParameter Name="visible_to_leaders" ControlID="hfTeamLeaderVisible" PropertyName="Value" />
+                   <asp:ControlParameter Name="visible_to_everyone" ControlID="hfGenerallyVisible" PropertyName="Value" />
+                   <asp:ControlParameter Name="comment" ControlID="txtTeamComment" PropertyName="Text" />
+                   <asp:SessionParameter Name="comment_user_id" SessionField="username" />
+               </InsertParameters>
+           </asp:SqlDataSource>
+
+            <!-- Data Source for PL/TL Grid View -->
+
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server"
+               ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'
+               SelectCommand="
+               SELECT  [comment],
+     	               [comment_timestamp],
+     	               [comment_user_id],
+     	               [USER].user_last_name + ', ' + [USER].user_first_name AS user_name
+                 FROM SEI_Archimedes.dbo.Team_Comments
+	                  JOIN SEI_TimeMachine2.dbo.[USER] ON (Team_Comments.comment_user_id = [USER].[user_id])
+                WHERE SEI_Archimedes.dbo.Team_Comments.team_key = @team_key
+                  AND SEI_Archimedes.dbo.Team_Comments.[visible_to_leaders] = 'Y'
                 ORDER BY comment_timestamp DESC;"
                InsertCommand="
                    INSERT INTO SEI_Archimedes.dbo.Team_Comments (
@@ -137,12 +168,12 @@
         </asp:GridView>
         </div>
        <div>
-       <asp:GridView ID="GridView2" runat="server"
+       <asp:GridView ID="gvTlComments" runat="server"
             AllowPaging="true"
             PageSize="5"
             PagerSettings-Position="Bottom"
             AutoGenerateColumns="false"
-            DataSourceID="dsTeamComments">
+            DataSourceID="SqlDataSource2">
             <Columns>
                 <asp:TemplateField HeaderText="PM/TL Comments">
                     <ItemTemplate>
