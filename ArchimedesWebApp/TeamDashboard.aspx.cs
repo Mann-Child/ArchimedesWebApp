@@ -51,7 +51,7 @@ namespace ArchimedesWebApp
                 cbGenerallyVisible.Visible = false;
                 lblTeamLeaderVisible.Visible = false;
                 lblGenerallyVisible.Visible = false;
-                GridView2.Visible = false;
+                gvTlComments.Visible = false;
             }
             if(HttpContext.Current.Session["username"].ToString() != HttpContext.Current.Session["ceo_id"].ToString())
             {
@@ -77,8 +77,11 @@ namespace ArchimedesWebApp
 
         protected void btnCreateComment_Click(Object sender, EventArgs e)
         {
-            dsTeamComments.Insert();
-            txtTeamComment.Text = String.Empty;
+
+                dsTeamComments.Insert();
+                txtTeamComment.Text = String.Empty;
+                gvTlComments.DataBind();
+
         }
 
         protected void btnFullName_Command(Object sender, CommandEventArgs e)

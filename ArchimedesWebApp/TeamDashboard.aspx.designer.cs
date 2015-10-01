@@ -139,7 +139,20 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.Label lblTeamLeaderVisible;
         
         /// <summary>
+<<<<<<< HEAD
         /// hfTeamLeaderVisible control.
+=======
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        
+        /// <summary>
+        /// gvTeamMembers control.
+>>>>>>> 3aa4cb444beaa4a37a4a973b72c8c4a4d4bc761d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -175,13 +188,21 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.HiddenField hfGenerallyVisible;
         
         /// <summary>
+<<<<<<< HEAD
         /// btnCreateComment control.
+=======
+        /// gvTlComments control.
+>>>>>>> 3aa4cb444beaa4a37a4a973b72c8c4a4d4bc761d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button btnCreateComment;
+=======
+        protected global::System.Web.UI.WebControls.GridView gvTlComments;
+>>>>>>> 3aa4cb444beaa4a37a4a973b72c8c4a4d4bc761d
         
         /// <summary>
         /// dsTeamComments control.
