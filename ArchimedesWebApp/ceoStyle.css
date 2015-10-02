@@ -23,7 +23,7 @@ h1, h2, h3
         font-size: 28px;
     }
 
-    h3, th
+    h3
     {
         font: bold 20px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     }
@@ -136,7 +136,8 @@ table
         background-color: rgba(255, 60, 12, 0.25);
     }
 
-    tr:first-child {
+    tr:first-child
+    {
         background-color: rgba(255, 60, 12, 0.75);
     }
 
@@ -173,7 +174,7 @@ a:hover, submit:hover, input:hover, option:hover
 {
     background-color: rgba(255, 60, 12, 0.75);
     color: rgb(255,255,255);
-    padding: 2px;
+    padding: 3px;
     
     -webkit-transition: 0.25s;
     -o-transition: 0.25s;
@@ -189,7 +190,11 @@ a:hover, submit:hover, input:hover, option:hover
 
 a:active
 {
-    color: rgba(0, 0, 0, 1);
+    color: rgba(80, 201, 129, 0.5);    
+    -webkit-transition: 0.25s;
+    -o-transition: 0.25s;
+    -moz-transition: 0.25s;
+    transition: 0.25s;
 }
 
 input, sumbit, select, option, textarea
@@ -202,10 +207,16 @@ input, sumbit, select, option, textarea
     margin-bottom: 5px;
 }
 
+
 .submit_button
 {
    padding: 2px;
 }
+
+   .submit_button:hover
+   {
+      padding: 2px;
+   }
 
    #ContentPlaceHolder1_leaveComment
    {

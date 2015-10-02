@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2 id="page_title">Member Dashboard &#8226; <span>
+    <h2 id="page_title" class="member">Member Dashboard &#8226; <span>
         <asp:Label ID="lblMemberName" runat="server" /></span></h2>
        <div id="page_data">
           <div id="member_table">
@@ -55,7 +55,7 @@
         </div>         
 
            </div>
-          <div id="aux_panel">
+          <div id="aux_panel" class="member">
            <h3>Leave Comment</h3>
         <asp:Label ID="lblMemberComment" runat="server"
                Text="Write Comment:"
