@@ -155,6 +155,8 @@
               <asp:SqlDataSource ID="dsUsers" runat="server"
                   ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'
                   SelectCommand="
+                      SELECT NULL AS user_fullname, NULL AS [user_id]
+                      UNION
                       SELECT DISTINCT user_last_name + ', ' + user_first_name AS user_fullname, [user_id]
                       FROM SEI_TimeMachine2.dbo.[USER]
                       WHERE user_is_enabled = 1

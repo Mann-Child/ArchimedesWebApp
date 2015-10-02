@@ -218,12 +218,6 @@ input, sumbit, select, option, textarea
       padding: 2px;
    }
 
-   #ContentPlaceHolder1_leaveComment
-   {
-      position:relative;
-      top: 25px;
-   }
-
 .box
 {
     display: inline-block;

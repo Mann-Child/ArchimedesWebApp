@@ -312,10 +312,6 @@
                         SELECT DISTINCT [user_id]
                           FROM SEI_Archimedes.dbo.Team_Linking
                         WHERE Team_Linking.team_key = @team_key)
-                  AND [user_id] NOT IN (
-                        SELECT DISTINCT pm_user_id
-                          FROM SEI_Archimedes.dbo.Teams
-                        WHERE Teams.team_key = @team_key)
                   AND [user_id] IN (
                         SELECT DISTINCT MEMBER.member_user_id
                         FROM SEI_TimeMachine2.dbo.MEMBER
