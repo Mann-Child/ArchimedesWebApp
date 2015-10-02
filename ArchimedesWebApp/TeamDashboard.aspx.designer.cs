@@ -22,60 +22,6 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.Label lblTeamName;
         
         /// <summary>
-        /// gvTeamMembers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTeamMembers;
-        
-        /// <summary>
-        /// hfDeleteUserID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfDeleteUserID;
-        
-        /// <summary>
-        /// hfMakeTLUserID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfMakeTLUserID;
-        
-        /// <summary>
-        /// gvComments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvComments;
-        
-        /// <summary>
-        /// GridView2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
-        
-        /// <summary>
-        /// dsTeamMembers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsTeamMembers;
-        
-        /// <summary>
         /// CEOseeing control.
         /// </summary>
         /// <remarks>
@@ -94,13 +40,13 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.DropDownList ddlUsers;
         
         /// <summary>
-        /// Button1 control.
+        /// AssignMember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button AssignMember;
         
         /// <summary>
         /// lblTeamComment control.
@@ -139,20 +85,7 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.Label lblTeamLeaderVisible;
         
         /// <summary>
-<<<<<<< HEAD
         /// hfTeamLeaderVisible control.
-=======
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
-        /// <summary>
-        /// gvTeamMembers control.
->>>>>>> 3aa4cb444beaa4a37a4a973b72c8c4a4d4bc761d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -188,21 +121,13 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.HiddenField hfGenerallyVisible;
         
         /// <summary>
-<<<<<<< HEAD
         /// btnCreateComment control.
-=======
-        /// gvTlComments control.
->>>>>>> 3aa4cb444beaa4a37a4a973b72c8c4a4d4bc761d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Button btnCreateComment;
-=======
-        protected global::System.Web.UI.WebControls.GridView gvTlComments;
->>>>>>> 3aa4cb444beaa4a37a4a973b72c8c4a4d4bc761d
         
         /// <summary>
         /// dsTeamComments control.
@@ -212,6 +137,69 @@ namespace ArchimedesWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsTeamComments;
+        
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        
+        /// <summary>
+        /// gvTeamMembers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvTeamMembers;
+        
+        /// <summary>
+        /// hfDeleteUserID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfDeleteUserID;
+        
+        /// <summary>
+        /// hfMakeTLUserID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfMakeTLUserID;
+        
+        /// <summary>
+        /// gvComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvComments;
+        
+        /// <summary>
+        /// gvTlComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvTlComments;
+        
+        /// <summary>
+        /// dsTeamMembers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsTeamMembers;
         
         /// <summary>
         /// dsUsers control.

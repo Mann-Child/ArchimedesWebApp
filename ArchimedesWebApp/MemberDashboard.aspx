@@ -33,7 +33,7 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-
+     <div id="comment_section">
      <asp:GridView ID="gvComments" runat="server"
             AllowPaging="true"
             PageSize="5"
@@ -43,18 +43,19 @@
             <Columns>
                 <asp:TemplateField HeaderText="Comments">
                     <ItemTemplate>
-                        <asp:Label ID="lblCommentHeader" runat="server"
+                        <asp:Label ID="lblCommentHeader" runat="server" CssClass="comment_header"
                             Text='<%# Eval("user_name") + " - " + Eval("comment_timestamp") %>' />
                         <br />
-                        <asp:Label ID="lblCommentBody" runat="server"
+                        <asp:Label ID="lblCommentBody" runat="server" CssClass="comment_body"
                             Text='<%# Eval("comment") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        </div>         
 
            </div>
-          <div id="right_panel">
+          <div id="aux_panel">
            <h3>Leave Comment</h3>
         <asp:Label ID="lblMemberComment" runat="server"
                Text="Write Comment:"
@@ -69,8 +70,8 @@
        <asp:HiddenField ID="hfGenerallyVisible" runat="server"
                Value="Y" />
 
-       <asp:Button ID="CreateCommentButton" runat="server"
-               OnClick="btnCreateComment_Click" CssClass="move_down"
+       <asp:Button ID="leaveComment" runat="server"
+               OnClick="btnCreateComment_Click" CssClass="submit_button"
                Text="Leave Comment" />
 
            </div>

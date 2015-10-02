@@ -35,7 +35,21 @@ h1, h2, h3
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     width: 100%;
+    height: 60px;
 }
+
+   #logo a:link, #logo a:hover
+   {
+       transition: none;
+       font: bold 36px "Trebuchet MS", Helvetica, sans-serif;
+       font-stretch: extra-condensed;
+       font-stretch: condensed;
+       margin-bottom: 0px;
+       margin-top: 0px;
+       padding: 0px;
+       background-color: rgb(0, 0, 0);
+       color: rgb(255, 255, 255);
+   }
 
     #logo_img
     {
@@ -60,7 +74,7 @@ h1, h2, h3
     margin: auto;
 }
 
-#right_panel
+#aux_panel
 {
    background: -webkit-linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* For Safari 5.1 to 6.0 */
    background: -o-linear-gradient(rgba(255, 60, 12, 0.75), rgba(255, 255, 255, 0.75)); /* For Opera 11.1 to 12.0 */
@@ -188,11 +202,16 @@ input, sumbit, select, option, textarea
     margin-bottom: 5px;
 }
 
-.move_down
+.submit_button
 {
-   position:relative;
-   top: 25px;
+   padding: 2px;
 }
+
+   #ContentPlaceHolder1_leaveComment
+   {
+      position:relative;
+      top: 25px;
+   }
 
 .box
 {
@@ -233,3 +252,4 @@ input, sumbit, select, option, textarea
 {
    font: 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
+

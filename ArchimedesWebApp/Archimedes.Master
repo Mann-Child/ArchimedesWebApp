@@ -15,11 +15,11 @@
     <form id="form1" runat="server">
        <div id="header">
           <div id="logo">
-             <img src="ceoLogo.png" id="logo_img" />
+             <asp:LinkButton ID="logoHome" runat="server"
+                 OnClick="btnHome_Click"><img src="ceoLogo.png" id="logo_img" usemap="home"/>
+             </asp:LinkButton>
              <h1><asp:LinkButton ID="btnHome" runat="server"
-                 OnClick="btnHome_Click">
-                 ARCHIMEDES
-             </asp:LinkButton></h1>
+                 OnClick="btnHome_Click">PROJECT:ARCHIMEDES</asp:LinkButton></h1>
           </div>
           <div id="header_links">
 

@@ -76,13 +76,13 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.HiddenField hfGenerallyVisible;
         
         /// <summary>
-        /// CreateCommentButton control.
+        /// leaveComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateCommentButton;
+        protected global::System.Web.UI.WebControls.Button leaveComment;
         
         /// <summary>
         /// DSTimeLogs control.
