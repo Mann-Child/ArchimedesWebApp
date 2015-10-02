@@ -7,13 +7,24 @@
         <asp:Label ID="lblMemberName" runat="server" /></span></h2>
        <div id="page_data">
           <div id="member_table">
-    <asp:GridView ID="GVTimeLogs" runat="server" AutoGenerateColumns="False" DataSourceID="DSTimeLogs">
+    <asp:GridView ID="GVTimeLogs" runat="server"
+        AutoGenerateColumns="False"
+        DataSourceID="DSTimeLogs"
+        AllowPaging="true"
+        PageSize="10">
         <Columns>
-            <asp:TemplateField HeaderText="Date/Time Created">
+            <asp:TemplateField HeaderText="Date/Time Begun">
                 <ItemTemplate>
                     <asp:Label ID ="lblEntryStartTime" 
                         runat="server" 
                         Text='<%#Eval("entry_begin_time") %>' />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Date/Time Ended">
+                <ItemTemplate>
+                    <asp:Label ID="lblEntryEndTime"
+                        runat="server"
+                        Text='<%# Eval("entry_end_time") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Hours Logged">
@@ -154,10 +165,15 @@
 <asp:SqlDataSource ID="DSTimeLogs"
                    runat="server"
     ConnectionString="<%$ ConnectionStrings:SEI_TimeMachine2ConnectionString %>" 
-    SelectCommand="SELECT entry.entry_begin_time, CAST((entry.entry_total_time / 60.0) AS numeric(36,2)) AS hours_logged, category.category_name 
-                    FROM [SEI_TimeMachine2].[dbo].[ENTRY] 
+    SelectCommand="SELECT entry.entry_begin_time,
+                    entry.entry_end_time,
+                    CAST((entry.entry_total_time / 60.0) AS numeric(36,2)) AS hours_logged,
+                    category.category_name 
+                    FROM SEI_Archimedes.dbo.Teams
+                    JOIN [SEI_TimeMachine2].[dbo].[ENTRY] ON (Teams.project_id = [ENTRY].entry_project_id)
                     JOIN [SEI_TimeMachine2].[dbo].[CATEGORY] ON (entry.entry_category_id = category.category_id) 
-                    WHERE entry.[entry_user_id] = @UserID
+                    WHERE entry.[entry_user_id] = 121372
+                    AND Teams.team_key = 37
                     ORDER BY entry.entry_begin_time DESC;">
     <SelectParameters>
         <asp:SessionParameter Name="UserID" SessionField="UserID"/>
