@@ -40,33 +40,6 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.SqlDataSource dsTeams;
         
         /// <summary>
-        /// cbViewOldTeams control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbViewOldTeams;
-        
-        /// <summary>
-        /// lblViewOldTeams control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblViewOldTeams;
-        
-        /// <summary>
-        /// hfViewOldTeams control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfViewOldTeams;
-        
-        /// <summary>
         /// lblTeamName control.
         /// </summary>
         /// <remarks>
