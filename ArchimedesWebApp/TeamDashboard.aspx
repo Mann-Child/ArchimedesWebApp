@@ -254,10 +254,10 @@
             <Columns>
                 <asp:TemplateField HeaderText="CEO Private Comments">
                     <ItemTemplate>
-                        <asp:Label ID="lblCommentHeader" runat="server"
+                        <asp:Label ID="lblCommentHeader" runat="server" CssClass="comment_header"
                             Text='<%# Eval("user_name") + " - " + Eval("comment_timestamp") %>' />
                         <br />
-                        <asp:Label ID="lblCommentBody" runat="server"
+                        <asp:Label ID="lblCommentBody" runat="server" CssClass="comment_body"
                             Text='<%# Eval("comment") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>

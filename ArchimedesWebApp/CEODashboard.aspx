@@ -108,7 +108,7 @@
                </DeleteParameters>
            </asp:SqlDataSource>
        </div>
-              <div id="aux_panel">
+       <div id="aux_panel">
           <div>
              <h3>Add a Team</h3>
               <asp:CheckBox ID="cbViewOldTeams" runat="server"
