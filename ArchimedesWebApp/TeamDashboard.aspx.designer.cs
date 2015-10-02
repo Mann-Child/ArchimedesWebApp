@@ -40,13 +40,13 @@ namespace ArchimedesWebApp {
         protected global::System.Web.UI.WebControls.DropDownList ddlUsers;
         
         /// <summary>
-        /// Button1 control.
+        /// AssignMember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button AssignMember;
         
         /// <summary>
         /// lblTeamComment control.

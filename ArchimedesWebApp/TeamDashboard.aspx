@@ -4,15 +4,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h2>
     <div class="page_data">
-        <div id="leave_comment">
+        <div id="aux_panel">
             <div id="CEOseeing" runat="server">
            <h3>Assign Users to Teams</h3>
            <asp:DropDownList ID="ddlUsers" runat="server"
                DataSourceID="dsUsers"
                DataTextField="user_fullname"
                DataValueField="user_id" />
-           <asp:Button ID="Button1" runat="server"
-               Text="Assign"
+           <asp:Button ID="AssignMember" runat="server"
+               Text="Assign" CssClass="submit_button"
                OnClick="btnAssignToTeam_Click" />
            </div>
            <h3>Leave Comment</h3>
@@ -59,7 +59,7 @@
            </div>
 
            <asp:Button ID="btnCreateComment" runat="server"
-               OnClick="btnCreateComment_Click"
+               OnClick="btnCreateComment_Click" CssClass="submit_button"
                Text="Leave Comment" />
 
            <asp:SqlDataSource ID="dsTeamComments" runat="server"
@@ -216,17 +216,16 @@
             <Columns>
                 <asp:TemplateField HeaderText="Comments">
                     <ItemTemplate>
-                        <asp:Label ID="lblCommentHeader" runat="server"
+                        <asp:Label ID="lblCommentHeader" runat="server" CssClass="comment_header"
                             Text='<%# Eval("user_name") + " - " + Eval("comment_timestamp") %>' />
                         <br />
-                        <asp:Label ID="lblCommentBody" runat="server"
+                        <asp:Label ID="lblCommentBody" runat="server" CssClass="comment_body"
                             Text='<%# Eval("comment") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        </div>
-       <div>
+       <div id="private_comments">
        <asp:GridView ID="gvTlComments" runat="server"
             AllowPaging="true"
             PageSize="5"
@@ -236,10 +235,10 @@
             <Columns>
                 <asp:TemplateField HeaderText="PM/TL Comments">
                     <ItemTemplate>
-                        <asp:Label ID="lblCommentHeader" runat="server"
+                        <asp:Label ID="lblCommentHeader" runat="server" CssClass="comment_header"
                             Text='<%# Eval("user_name") + " - " + Eval("comment_timestamp") %>' />
                         <br />
-                        <asp:Label ID="lblCommentBody" runat="server"
+                        <asp:Label ID="lblCommentBody" runat="server" CssClass="comment_body"
                             Text='<%# Eval("comment") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -255,10 +254,10 @@
             <Columns>
                 <asp:TemplateField HeaderText="CEO Private Comments">
                     <ItemTemplate>
-                        <asp:Label ID="lblCommentHeader" runat="server"
+                        <asp:Label ID="lblCommentHeader" runat="server" CssClass="comment_header"
                             Text='<%# Eval("user_name") + " - " + Eval("comment_timestamp") %>' />
                         <br />
-                        <asp:Label ID="lblCommentBody" runat="server"
+                        <asp:Label ID="lblCommentBody" runat="server" CssClass="comment_body"
                             Text='<%# Eval("comment") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -275,12 +274,14 @@
                         WHERE Teams.team_key = @team_key
                         GROUP BY [USER].[user_id], [USER].user_last_name, [USER].user_first_name
                     UNION
-                        SELECT team_user.[user_id], team_user.user_last_name + ', ' + team_user.user_first_name AS user_fullname, CAST(SUM(log_entry.entry_total_time / 60.0) AS numeric(36,2)) AS user_total_time
-                        FROM SEI_Archimedes.dbo.Team_Linking
-	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[USER] team_user ON (team_user.[user_id] = Team_Linking.[user_id])
-	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] log_entry ON (team_user.[user_id] = log_entry.entry_user_id)
-                        WHERE Team_Linking.team_key = @team_key
-                        GROUP BY team_user.[user_id], team_user.user_last_name, team_user.user_first_name"
+                        SELECT [USER].[user_id], [USER].user_last_name + ', ' + [USER].user_first_name AS user_fullname, CAST(SUM([ENTRY].entry_total_time / 60.0) AS numeric(36,2)) AS user_total_time
+                        FROM SEI_TimeMachine2.dbo.[USER]
+	                         JOIN SEI_Archimedes.dbo.Team_Linking ON ([USER].[user_id] = Team_Linking.[user_id])
+	                         JOIN SEI_Archimedes.dbo.Teams ON ([Team_Linking].team_key = Teams.team_key)
+	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] ON ([ENTRY].entry_project_id = Teams.project_id
+										                                      AND [ENTRY].entry_user_id = [USER].[user_id])
+                        WHERE Teams.team_key = @team_key
+                        GROUP BY [USER].[user_id], [USER].user_last_name, [USER].user_first_name"
             DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Team_Linking WHERE Team_Linking.user_id = @team_user"
             UpdateCommand="UPDATE SEI_Archimedes.dbo.Teams
                            SET team_leader_user_id = @team_leader_user_id
@@ -297,6 +298,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
      </div>
+        </div>
       </div>   
      </div>
      <div>
@@ -339,5 +341,3 @@
         </asp:SqlDataSource>
        </div>
 </asp:Content>
-
-
