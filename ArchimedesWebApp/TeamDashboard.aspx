@@ -274,12 +274,14 @@
                         WHERE Teams.team_key = @team_key
                         GROUP BY [USER].[user_id], [USER].user_last_name, [USER].user_first_name
                     UNION
-                        SELECT team_user.[user_id], team_user.user_last_name + ', ' + team_user.user_first_name AS user_fullname, CAST(SUM(log_entry.entry_total_time / 60.0) AS numeric(36,2)) AS user_total_time
-                        FROM SEI_Archimedes.dbo.Team_Linking
-	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[USER] team_user ON (team_user.[user_id] = Team_Linking.[user_id])
-	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] log_entry ON (team_user.[user_id] = log_entry.entry_user_id)
-                        WHERE Team_Linking.team_key = @team_key
-                        GROUP BY team_user.[user_id], team_user.user_last_name, team_user.user_first_name"
+                        SELECT [USER].[user_id], [USER].user_last_name + ', ' + [USER].user_first_name AS user_fullname, CAST(SUM([ENTRY].entry_total_time / 60.0) AS numeric(36,2)) AS user_total_time
+                        FROM SEI_TimeMachine2.dbo.[USER]
+	                         JOIN SEI_Archimedes.dbo.Team_Linking ON ([USER].[user_id] = Team_Linking.[user_id])
+	                         JOIN SEI_Archimedes.dbo.Teams ON ([Team_Linking].team_key = Teams.team_key)
+	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] ON ([ENTRY].entry_project_id = Teams.project_id
+										                                      AND [ENTRY].entry_user_id = [USER].[user_id])
+                        WHERE Teams.team_key = @team_key
+                        GROUP BY [USER].[user_id], [USER].user_last_name, [USER].user_first_name"
             DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Team_Linking WHERE Team_Linking.user_id = @team_user"
             UpdateCommand="UPDATE SEI_Archimedes.dbo.Teams
                            SET team_leader_user_id = @team_leader_user_id
