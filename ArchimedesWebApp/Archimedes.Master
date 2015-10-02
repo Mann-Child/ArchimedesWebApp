@@ -14,13 +14,15 @@
 <body>
     <form id="form1" runat="server">
        <div id="header">
-          <img src="ceoLogo.png" id="logo" />
-          <h1>ARCHIMEDES</h1>
-          <div id="header_links">
-             <asp:LinkButton ID="btnHome" runat="server"
-                 OnClick="btnHome_Click">
-                 Home
+          <div id="logo">
+             <asp:LinkButton ID="logoHome" runat="server"
+                 OnClick="btnHome_Click"><img src="ceoLogo.png" id="logo_img" usemap="home"/>
              </asp:LinkButton>
+             <h1><asp:LinkButton ID="btnHome" runat="server"
+                 OnClick="btnHome_Click">PROJECT:ARCHIMEDES</asp:LinkButton></h1>
+          </div>
+          <div id="header_links">
+
              <asp:LinkButton ID="btnTeam" runat="server"
                  OnClick="btnTeam_Click">
                  Team
@@ -37,6 +39,5 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
-   <div id="footer"><p>&#169; 2015 - Software Engineers Incorporated</p></div>
 </body>
 </html>

@@ -108,7 +108,7 @@
                </DeleteParameters>
            </asp:SqlDataSource>
        </div>
-              <div id="add_team">
+       <div id="aux_panel">
           <div>
              <h3>Add a Team</h3>
               <asp:CheckBox ID="cbViewOldTeams" runat="server"
@@ -179,7 +179,7 @@
               <br />
 
               <asp:Button ID="btnCreateTeam" runat="server"
-                  Text="Add Team"
+                  Text="Add Team" CssClass="submit_button"
                   OnClick="btnCreateTeam_Click" />
           </div>
        </div>
