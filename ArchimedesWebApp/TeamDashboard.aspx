@@ -21,18 +21,7 @@
                AssociatedControlID="txtTeamComment" />
            <asp:TextBox ID="txtTeamComment" runat="server"
                TextMode="MultiLine" Rows="5" />
-           
-           <div class="box">                                         
-              <asp:CheckBox ID="cbTeamLeaderVisible" runat="server"
-                  Checked="true"
-                  OnCheckedChanged="cbTeamLeaderVisible_CheckedChanged"
-                  CssClass="checkbox"/>
-              <asp:Label ID="lblTeamLeaderVisible" runat="server"
-                  AssociatedControlID="cbTeamLeaderVisible"
-                  Text="Visible to Team Leader and PM" />
-              <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
-                  Value="Y" />
-           </div>
+
            <div class="box">                                 
            <asp:CheckBox ID="cbGenerallyVisible" runat="server"
                Checked="true"
@@ -43,6 +32,30 @@
                Text="Visible to Everyone" />
            <asp:HiddenField ID="hfGenerallyVisible" runat="server"
                Value="Y" />
+           </div>
+           
+           <div class="box">                                         
+              <asp:CheckBox ID="cbTeamLeaderVisible" runat="server"
+                  Checked="false"
+                  OnCheckedChanged="cbTeamLeaderVisible_CheckedChanged"
+                  CssClass="checkbox"/>
+              <asp:Label ID="lblTeamLeaderVisible" runat="server"
+                  AssociatedControlID="cbTeamLeaderVisible"
+                  Text="Visible in Team Leader and PM box" />
+              <asp:HiddenField ID="hfTeamLeaderVisible" runat="server"
+                  Value="N" />
+           </div>
+
+            <div class="box">                                         
+              <asp:CheckBox ID="cbCeoVisible" runat="server"
+                  Checked="false"
+                  OnCheckedChanged="cbCeoVisible_CheckedChanged"
+                  CssClass="checkbox"/>
+              <asp:Label ID="lblCeoVisible" runat="server"
+                  AssociatedControlID="cbCeoVisible"
+                  Text="Make Private CEO Comment" />
+              <asp:HiddenField ID="hfCeoVisible" runat="server"
+                  Value="N" />
            </div>
 
            <asp:Button ID="btnCreateComment" runat="server"
@@ -63,9 +76,9 @@
                 ORDER BY comment_timestamp DESC;"
                InsertCommand="
                    INSERT INTO SEI_Archimedes.dbo.Team_Comments (
-                       team_key, visible_to_leaders, visible_to_everyone, comment, comment_timestamp, comment_user_id
+                       team_key, visible_to_leaders, visible_to_everyone, comment, comment_timestamp, comment_user_id, ceo_private
                    ) VALUES (
-                       @team_key, @visible_to_leaders, @visible_to_everyone, @comment, SYSDATETIME(), @comment_user_id
+                       @team_key, @visible_to_leaders, @visible_to_everyone, @comment, SYSDATETIME(), @comment_user_id, @ceo_private
                    );" >
                <SelectParameters>
                    <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
@@ -74,6 +87,7 @@
                    <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
                    <asp:ControlParameter Name="visible_to_leaders" ControlID="hfTeamLeaderVisible" PropertyName="Value" />
                    <asp:ControlParameter Name="visible_to_everyone" ControlID="hfGenerallyVisible" PropertyName="Value" />
+                   <asp:ControlParameter Name="ceo_private" ControlID="hfCeoVisible" PropertyName="Value" />
                    <asp:ControlParameter Name="comment" ControlID="txtTeamComment" PropertyName="Text" />
                    <asp:SessionParameter Name="comment_user_id" SessionField="username" />
                </InsertParameters>
@@ -95,9 +109,9 @@
                 ORDER BY comment_timestamp DESC;"
                InsertCommand="
                    INSERT INTO SEI_Archimedes.dbo.Team_Comments (
-                       team_key, visible_to_leaders, visible_to_everyone, comment, comment_timestamp, comment_user_id
+                       team_key, visible_to_leaders, visible_to_everyone, comment, comment_timestamp, comment_user_id, ceo_private
                    ) VALUES (
-                       @team_key, @visible_to_leaders, @visible_to_everyone, @comment, SYSDATETIME(), @comment_user_id
+                       @team_key, @visible_to_leaders, @visible_to_everyone, @comment, SYSDATETIME(), @comment_user_id, @ceo_private
                    );" >
                <SelectParameters>
                    <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
@@ -106,10 +120,45 @@
                    <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
                    <asp:ControlParameter Name="visible_to_leaders" ControlID="hfTeamLeaderVisible" PropertyName="Value" />
                    <asp:ControlParameter Name="visible_to_everyone" ControlID="hfGenerallyVisible" PropertyName="Value" />
+                   <asp:ControlParameter Name="ceo_private" ControlID="hfCeoVisible" PropertyName="Value" />
                    <asp:ControlParameter Name="comment" ControlID="txtTeamComment" PropertyName="Text" />
                    <asp:SessionParameter Name="comment_user_id" SessionField="username" />
                </InsertParameters>
            </asp:SqlDataSource>
+
+
+            <!-- Data Source for CEO Grid View -->
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server"
+               ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'
+               SelectCommand="
+               SELECT  [comment],
+     	               [comment_timestamp],
+     	               [comment_user_id],
+     	               [USER].user_last_name + ', ' + [USER].user_first_name AS user_name
+                 FROM SEI_Archimedes.dbo.Team_Comments
+	                  JOIN SEI_TimeMachine2.dbo.[USER] ON (Team_Comments.comment_user_id = [USER].[user_id])
+                WHERE SEI_Archimedes.dbo.Team_Comments.team_key = @team_key
+                  AND SEI_Archimedes.dbo.Team_Comments.[ceo_private]  = 'Y'
+                ORDER BY comment_timestamp DESC;"
+               InsertCommand="
+                   INSERT INTO SEI_Archimedes.dbo.Team_Comments (
+                       team_key, visible_to_leaders, visible_to_everyone, comment, comment_timestamp, comment_user_id, ceo_private
+                   ) VALUES (
+                       @team_key, @visible_to_leaders, @visible_to_everyone, @comment, SYSDATETIME(), @comment_user_id, @ceo_private
+                   );" >
+               <SelectParameters>
+                   <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
+               </SelectParameters>
+               <InsertParameters>
+                   <asp:SessionParameter Name="team_key" SessionField="TeamKey" />
+                   <asp:ControlParameter Name="visible_to_leaders" ControlID="hfTeamLeaderVisible" PropertyName="Value" />
+                   <asp:ControlParameter Name="visible_to_everyone" ControlID="hfGenerallyVisible" PropertyName="Value" />
+                   <asp:ControlParameter Name="ceo_private" ControlID="hfCeoVisible" PropertyName="Value" />
+                   <asp:ControlParameter Name="comment" ControlID="txtTeamComment" PropertyName="Text" />
+                   <asp:SessionParameter Name="comment_user_id" SessionField="username" />
+               </InsertParameters>
+           </asp:SqlDataSource>
+
         </div>
         <div id="member_table">
         <asp:GridView ID="gvTeamMembers" runat="server"
@@ -130,7 +179,7 @@
                             OnCommand="btnFullName_Command" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Time Logged">
+                <asp:TemplateField HeaderText="Total Hours Logged">
                     <ItemTemplate>
                         <asp:Label ID="lblTotalTime" runat="server"
                             Text='<%# Eval("user_total_time") %>' />
@@ -195,6 +244,26 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+
+           <asp:GridView ID="gv_ceo_private" runat="server"
+            AllowPaging="true"
+            PageSize="5"
+            PagerSettings-Position="Bottom"
+            AutoGenerateColumns="false"
+            DataSourceID="SqlDataSource3">
+            <Columns>
+                <asp:TemplateField HeaderText="CEO Private Comments">
+                    <ItemTemplate>
+                        <asp:Label ID="lblCommentHeader" runat="server"
+                            Text='<%# Eval("user_name") + " - " + Eval("comment_timestamp") %>' />
+                        <br />
+                        <asp:Label ID="lblCommentBody" runat="server"
+                            Text='<%# Eval("comment") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+
         <asp:SqlDataSource ID="dsTeamMembers" runat="server"
             ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'
             SelectCommand="
@@ -205,7 +274,7 @@
                         WHERE Teams.team_key = @team_key
                         GROUP BY [USER].[user_id], [USER].user_last_name, [USER].user_first_name
                     UNION
-                        SELECT team_user.[user_id], team_user.user_last_name + ', ' + team_user.user_first_name AS user_fullname, SUM(log_entry.entry_total_time) AS user_total_time
+                        SELECT team_user.[user_id], team_user.user_last_name + ', ' + team_user.user_first_name AS user_fullname, CAST(SUM(log_entry.entry_total_time / 60.0) AS numeric(36,2)) AS user_total_time
                         FROM SEI_Archimedes.dbo.Team_Linking
 	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[USER] team_user ON (team_user.[user_id] = Team_Linking.[user_id])
 	                         LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] log_entry ON (team_user.[user_id] = log_entry.entry_user_id)
@@ -229,7 +298,7 @@
      </div>
         </div>
       </div>   
-      </div>
+     </div>
      <div>
         <asp:SqlDataSource ID="dsUsers" runat="server"
             ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'

@@ -55,7 +55,11 @@ namespace ArchimedesWebApp
             }
             if(HttpContext.Current.Session["username"].ToString() != HttpContext.Current.Session["ceo_id"].ToString())
             {
-                CEOseeing.Visible = false;
+                CEOseeing.Visible      = false;
+                cbCeoVisible.Visible   = false;
+                cbCeoVisible.Checked   = false;
+                lblCeoVisible.Visible  = false;
+                gv_ceo_private.Visible = false;
             }
         }
 
@@ -75,12 +79,18 @@ namespace ArchimedesWebApp
             hfGenerallyVisible.Value = cbGenerallyVisible.Checked ? "Y" : "N";
         }
 
+        protected void cbCeoVisible_CheckedChanged(Object sender, EventArgs e)
+        {
+            hfCeoVisible.Value = cbCeoVisible.Checked ? "Y" : "N";
+        }
+
         protected void btnCreateComment_Click(Object sender, EventArgs e)
         {
 
-                dsTeamComments.Insert();
-                txtTeamComment.Text = String.Empty;
-                gvTlComments.DataBind();
+            dsTeamComments.Insert();
+            txtTeamComment.Text = String.Empty;
+            gvTlComments.DataBind();
+            gv_ceo_private.DataBind();
 
         }
 
