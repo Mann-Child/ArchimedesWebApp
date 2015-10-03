@@ -172,11 +172,12 @@
                     FROM SEI_Archimedes.dbo.Teams
                     JOIN [SEI_TimeMachine2].[dbo].[ENTRY] ON (Teams.project_id = [ENTRY].entry_project_id)
                     JOIN [SEI_TimeMachine2].[dbo].[CATEGORY] ON (entry.entry_category_id = category.category_id) 
-                    WHERE entry.[entry_user_id] = 121372
-                    AND Teams.team_key = 37
+                    WHERE entry.[entry_user_id] = @UserID
+                    AND Teams.team_key = @TeamKey
                     ORDER BY entry.entry_begin_time DESC;">
     <SelectParameters>
         <asp:SessionParameter Name="UserID" SessionField="UserID"/>
+        <asp:SessionParameter Name="TeamKey" SessionField="TeamKey"/>
     </SelectParameters>
 </asp:SqlDataSource>
 
