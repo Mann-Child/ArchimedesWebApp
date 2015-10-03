@@ -78,7 +78,7 @@
 	                   LEFT OUTER JOIN SEI_Archimedes.dbo.Team_Linking ON (Teams.team_key = Team_Linking.team_key)
 	                   LEFT OUTER JOIN SEI_TimeMachine2.dbo.[USER] team_user ON (Team_Linking.[user_id] = team_user.[user_id])
 	                   LEFT OUTER JOIN SEI_TimeMachine2.dbo.[ENTRY] ON ([ENTRY].entry_user_id = team_user.[user_id])
-                   WHERE Teams.active = 'Y' OR @show_old_teams = 'Y'
+                   WHERE Teams.active = 'Y'
                    GROUP BY Teams.team_key,
                             Teams.team_name,
                             Teams.course_id,
@@ -94,9 +94,6 @@
 	                   @team_name, 'Y', @course_id, @project_id, @pm_user_id
                    );"
                DeleteCommand="DELETE FROM SEI_Archimedes.dbo.Teams WHERE Teams.team_key = @team_key">
-               <SelectParameters>
-                   <asp:ControlParameter Name="show_old_teams" ControlID="hfViewOldTeams" PropertyName="Value" />
-               </SelectParameters>
                <InsertParameters>
                    <asp:ControlParameter Name="team_name" ControlID="txtTeamName" PropertyName="Text" />
                    <asp:ControlParameter Name="project_id" ControlID="ddlProject" PropertyName="SelectedValue" />
@@ -111,15 +108,6 @@
        <div id="aux_panel">
           <div>
              <h3>Add a Team</h3>
-              <asp:CheckBox ID="cbViewOldTeams" runat="server"
-                  OnCheckedChanged="cbViewOldTeams_CheckedChanged"
-                 CssClass="checkbox"/>
-              <asp:Label ID="lblViewOldTeams" runat="server"
-                  AssociatedControlID="cbViewOldTeams"
-                  Text="Show Old Teams"/>
-              <asp:HiddenField ID="hfViewOldTeams" runat="server" Value="N"/>
-          </div>
-          <div>
               <asp:Label ID="lblTeamName" runat="server"
                   AssociatedControlID="txtTeamName"
                   Text="Team Name:" />
@@ -167,6 +155,8 @@
               <asp:SqlDataSource ID="dsUsers" runat="server"
                   ConnectionString='<%$ ConnectionStrings:SEI_ArchimedesConnectionString %>'
                   SelectCommand="
+                      SELECT NULL AS user_fullname, NULL AS [user_id]
+                      UNION
                       SELECT DISTINCT user_last_name + ', ' + user_first_name AS user_fullname, [user_id]
                       FROM SEI_TimeMachine2.dbo.[USER]
                       WHERE user_is_enabled = 1

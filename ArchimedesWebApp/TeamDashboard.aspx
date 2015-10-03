@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 id="page_title">Team Dashboard &#8226; <span class="team_name"><asp:Label ID="lblTeamName" runat="server" /></span></h2>
-    <div class="page_data">
+    <div id="page_data">
         <div id="aux_panel">
             <div id="CEOseeing" runat="server">
            <h3>Assign Users to Teams</h3>
@@ -312,10 +312,6 @@
                         SELECT DISTINCT [user_id]
                           FROM SEI_Archimedes.dbo.Team_Linking
                         WHERE Team_Linking.team_key = @team_key)
-                  AND [user_id] NOT IN (
-                        SELECT DISTINCT pm_user_id
-                          FROM SEI_Archimedes.dbo.Teams
-                        WHERE Teams.team_key = @team_key)
                   AND [user_id] IN (
                         SELECT DISTINCT MEMBER.member_user_id
                         FROM SEI_TimeMachine2.dbo.MEMBER
